@@ -1,5 +1,4 @@
-// #include "lfsr.h"
-#include "../include/lfsr.h"
+#include "lfsr.h"
 
 int extract_bit(int number, int position)
 {
