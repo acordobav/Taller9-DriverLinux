@@ -13,10 +13,14 @@ int extract_bit(int number, int position);
 **/
 int lfsr_16(int number);
 
-
+/**
+ * Writes 1 in /dev/timer file
+**/
 void init_timer();
 
-
+/**
+ * Writes 0 in /dev/timer file
+**/
 void end_timer();
 
 

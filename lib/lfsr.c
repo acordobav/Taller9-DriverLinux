@@ -35,14 +35,32 @@ void init_timer()
         exit(1);
     }
 
-    char* one = "1";
-    fwrite(one, 1, 1, fptr);    
+    char *one = "1";
+    fwrite(one, 1, 1, fptr);
 
     fclose(fptr);
 }
 
-int main() {
+void end_timer()
+{
+    FILE *fptr = fopen(timer_file, "w");
+
+    if (fptr == NULL)
+    {
+        printf("Error reading /dev/timer\n");
+        exit(1);
+    }
+
+    char *one = "0";
+    fwrite(one, 1, 1, fptr);
+
+    fclose(fptr);
+}
+
+int main()
+{
 
     init_timer();
+    end_timer();
     return 0;
 }
