@@ -1,4 +1,5 @@
-#include "lfsr.h"
+// #include "lfsr.h"
+#include "../include/lfsr.h"
 
 int extract_bit(int number, int position)
 {
@@ -22,4 +23,26 @@ int lfsr_16(int number)
     int new_number = feedback | (number >> 1);
 
     return new_number;
+}
+
+void init_timer()
+{
+    FILE *fptr = fopen(timer_file, "w");
+
+    if (fptr == NULL)
+    {
+        printf("Error reading /dev/timer\n");
+        exit(1);
+    }
+
+    char* one = "1";
+    fwrite(one, 1, 1, fptr);    
+
+    fclose(fptr);
+}
+
+int main() {
+
+    init_timer();
+    return 0;
 }
